@@ -1,0 +1,12 @@
+{
+    "name": "restphp/vorm",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RestPHP Framework",
+            "email": "contact@restphp.org"
+        }
+    ],
+    "require": {}
+}
