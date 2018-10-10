@@ -27,6 +27,8 @@ class Core
         if("get" === $prefix || "set" === $prefix){
             $field = Inflector::toUnderscore(substr($name,3));
 
+            $this->table()->fieldExists($field);
+
             if("get" === $prefix){
                 if(!isset($this->_data[$field])){
                     throw new ColumnNotFoundException('Column "'.$field.'" not found."', 4000);
