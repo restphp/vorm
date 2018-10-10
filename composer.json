@@ -1,12 +1,17 @@
 {
-    "name": "restphp/vorm",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "RestPHP Framework",
-            "email": "contact@restphp.org"
-        }
-    ],
-    "require": {}
+  "name": "restphp/vorm",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "RestPHP Framework",
+      "email": "contact@restphp.org"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "VORM\\": "src/"
+    }
+  }
 }
