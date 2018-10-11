@@ -4,8 +4,9 @@ namespace VORM\Model;
 
 use VORM\Inflector;
 use VORM\Exception\ColumnNotFoundException;
+use VORM\Repository\Find;
 
-class Core
+class Core extends Find
 {
     private $_data = [];
     private $_table = [];

@@ -2,7 +2,8 @@
 
 namespace VORM;
 
-class Vorm
+
+class Autoload
 {
 
     public function __construct()
@@ -13,13 +14,15 @@ class Vorm
     public function loader($className)
     {
         if (!class_exists($className)) {
-            $namespaces = explode(DIRECTORY_SEPARATOR, $className);
+            $namespaces = explode('\\', $className);
+
             if (mb_strtolower($namespaces[0]) === "vorm") {
                 $class = end($namespaces);
                 eval('namespace VORM; class ' . $class . ' extends \VORM\Model\Core {}');
             }
         }
     }
+
 
 
 }
