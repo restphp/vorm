@@ -27,6 +27,11 @@
             ->setName('default')
     );
 
+    $builder = \VORM\Articles::builder();
+
+    $builder->add((new \VORM\Builder\Column('id'))->setAlias('IDK'));
+    $builder->add((new \VORM\Builder\Column('id'))->setAlias('IDK'));
+
     $result = \VORM\Articles::find();
     var_dump($result);
 

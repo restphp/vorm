@@ -1,7 +1,7 @@
 <?php
 
 
-namespace VORM\Builder;
+namespace VORM\Builder\Driver\Mysql;
 
 
 class Select
