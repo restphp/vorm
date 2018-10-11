@@ -20,5 +20,15 @@ class Inflector
         return mb_strtolower($input);
     }
 
+    public static function getClass(string $namespace): ?string
+    {
+        $parts = explode("\\", $namespace);
+        if(!empty($parts)){
+            return end($parts);
+        }
+
+        return null;
+    }
+
 
 }

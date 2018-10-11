@@ -2,7 +2,7 @@
 
 namespace VORM\Builder\Maps;
 
-interface SelectInterface
+interface ColumnInterface
 {
 
 }

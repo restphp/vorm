@@ -1,19 +1,48 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mkowalczyk
- * Date: 11.10.18
- * Time: 12:21
- */
 
 namespace VORM\Repository;
 
 
+use VORM\Builder\Query;
+use VORM\Database\Collection as DatabaseCollection;
+
 class Find
 {
 
-    public static function find($params = null){
+    private $databaseName = null;
+
+    public static function find($params = null)
+    {
         return "OK";
+    }
+
+    public static function builder(): Query
+    {
+        return new Query();
+    }
+
+
+    /**
+     * @param string $databaseName
+     * @return Find
+     * @throws \Exception
+     */
+    public function useDatabase(string $databaseName): self
+    {
+        if (!DatabaseCollection::has($databaseName)) {
+            throw new \Exception('Instance database "' . $databaseName . '" not exists.');
+        }
+        $this->databaseName = $databaseName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function getDatabase(): string
+    {
+        return $this->databaseName;
     }
 
 }
