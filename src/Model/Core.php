@@ -2,12 +2,15 @@
 
 namespace VORM\Model;
 
+use VORM\Builder;
 use VORM\Inflector;
 use VORM\Exception\ColumnNotFoundException;
 use VORM\Repository\Find;
 
-class Core extends Find
+class Core
 {
+    use Traits\Find;
+
     private $_data = [];
     private $_table = [];
 
@@ -19,6 +22,11 @@ class Core extends Find
     public function table()
     {
         return $this->_table;
+    }
+
+    public static function builder()
+    {
+        return new Builder();
     }
 
     public function __call($name, $arguments)

@@ -3,8 +3,11 @@
 
 namespace VORM\Builder;
 
-
-class Column implements Maps\ColumnInterface
+/**
+ * Class Column
+ * @package VORM\Builder
+ */
+class Column
 {
     private $columnName = null;
     private $alias = null;

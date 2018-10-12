@@ -1,5 +1,6 @@
 <pre><?php
 
+    use VORM\Builder\{Where,Column};
     use VORM\Users as Users;
 
 
@@ -29,8 +30,24 @@
 
     $builder = \VORM\Articles::builder();
 
-    $builder->add((new \VORM\Builder\Column('id'))->setAlias('IDK'));
-    $builder->add((new \VORM\Builder\Column('id'))->setAlias('IDK'));
+    $builder->add((new Column('id'))->setAlias('IDK'));
+
+    $contains1 = new Where('id = :id');
+    $contains1->addParam(':id', 123);
+    $contains1->addOr((new Where('id = :id'))->addParam(':id', 333));
+
+    $builder->add($contains1);
+
+    $builder->add((new Where('id = :id'))->addParam(':id', 8888));
+/*
+    $builder->add(
+        (new Where('(@1 OR name = "@2")'))
+            ->addParam("@1", new Where("1 = 1 OR 2 = 2"))
+            ->addParam("@2", "Dzik")
+    );
+*/
+    var_dump($builder->getSql());
+
 
     $result = \VORM\Articles::find();
     var_dump($result);
